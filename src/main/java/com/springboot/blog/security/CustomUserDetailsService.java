@@ -1,6 +1,5 @@
 package com.springboot.blog.security;
 
-import com.springboot.blog.entity.Role;
 import com.springboot.blog.entity.User;
 import com.springboot.blog.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
@@ -10,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
 

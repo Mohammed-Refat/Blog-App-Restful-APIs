@@ -8,14 +8,11 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -55,6 +52,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests(configurer->
                 configurer
                         .requestMatchers(HttpMethod.GET,"/api/posts/**").hasRole("USER")
+                        .requestMatchers(HttpMethod.POST,"/api/auth/**").permitAll()
                         .requestMatchers(HttpMethod.POST,"/api/posts/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT,"/api/posts/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE,"/api/posts/**").hasRole("ADMIN")
@@ -68,11 +66,14 @@ public class SecurityConfig {
         return http.build();
     }
 
-
-
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder());
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
+        return configuration.getAuthenticationManager();
     }
 
 
