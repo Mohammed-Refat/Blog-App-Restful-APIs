@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/api/posts/{postId}/comments")
 @RestController
+@RequestMapping("/api/posts/{postId}/comments")
 public class CommentController {
 
     private CommentService commentService;
@@ -21,7 +21,7 @@ public class CommentController {
     }
 
     @PostMapping
-    public ResponseEntity<CommentDto> createComment(@PathVariable("id") long postId ,
+    public ResponseEntity<CommentDto> createComment(@PathVariable("postId") long postId ,
                                                     @Valid @RequestBody CommentDto commentDto){
         return new ResponseEntity<>(commentService.createComment(postId,commentDto), HttpStatus.CREATED);
     }
@@ -29,7 +29,7 @@ public class CommentController {
 
 
     @GetMapping
-    public List<CommentDto> getAllCommentsByPostId(@PathVariable("id") Long postId){
+    public List<CommentDto> getAllCommentsByPostId(@PathVariable("postId") Long postId){
         return commentService.getCommentsByPostId(postId);
     }
 
