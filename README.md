@@ -110,5 +110,5 @@ Contributions are welcome! Please fork the repository and create a pull request 
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE]([LICENSE](https://github.com/Mohammed-Refat/Blog-App-Restful-APIs/blob/main/LICENSE)) file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/Mohammed-Refat/Blog-App-Restful-APIs/blob/main/LICENSE) file for details.
 
