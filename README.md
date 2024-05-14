@@ -1,4 +1,4 @@
-# Real-Time REST APIs with Spring Boot
+# Real-Time REST APIs with Spring Boot | Blog App
 
 Welcome to the Real-Time REST APIs project built with Spring Boot! This project is a comprehensive implementation based on the Udemy course "[Building Real-Time REST APIs with Spring Boot](https://www.udemy.com/course/building-real-time-rest-apis-with-spring-boot/?couponCode=LEADERSALE24A)".
 
